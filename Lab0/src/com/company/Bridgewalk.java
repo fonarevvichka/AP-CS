@@ -86,21 +86,7 @@ public class Bridgewalk {
         return bridgeLength;
     }
     
-    public static int options() {
-        int userOptions = 0;
-        
-        do {
-            System.out.println("Please enter the desired option");
-            System.out.println("1. graphic bridge for each step" + "\n" +
-                               "2. average number of steps"  + "\n" +
-                               "3. total number of steps for x trials" + "\n" +
-                               "4. largest and smallest number of steps required to fall off" + "\n" +
-                               "0. Enter 0 to exit");
             
-            return userOptions = userInput.nextInt();
-            
-        } while (userOptions > 0 && userOptions < 5);
-        
         
         //        if (userOptions > 0 && userOptions < 5) {
         ////        	userInput.close();

@@ -5,7 +5,10 @@
 
 package com.company;
 
+import java.util.Scanner;
+
 public class Lab1 {
+    static Scanner cin = new Scanner(System.in);
 
     public static void main(String[] args) {
 //        displayFactors(4);
@@ -15,7 +18,45 @@ public class Lab1 {
 //        System.out.println(findDigit(123472, 9));
 //        downDigits(12345);
 //        System.out.println(countDigits(123.74));
+        int z = 0;
+
+        do {
+            z = options();
+            switch(z) {
+                case 1:
+                    System.out.println("Please enter your first number: ");
+                    int userNum1 = cin.nextInt();
+                    System.out.println("Please enter your second number: ");
+                    int userNum2 = cin.nextInt();
+                    System.out.println("The greatest common divisor is: " + GCD(userNum1, userNum2));
+                    break;
+                case 2:
+                    System.out.println("Please enter the base: ");
+                    int base = cin.nextInt();
+                    System.out.println("Please enter the power: ");
+                    int power = cin.nextInt();
+                    System.out.println("The result of the calculation is: " + power(base, power));
+            }
+        } while (z != 0);
     }
+    public static int options() {
+        int userOptions = 0;
+
+        do {
+            System.out.println("Please enter what method you want to run: ");
+            System.out.println("1. Greatest Common Divisor" + "\n" +
+                    "2. Power" + "\n" +
+                    "3. Prime Checker" + "\n" +
+                    "4. Display Factors" + "\n" +
+                    "5. Down digits" + "\n" +
+                    "6. Count Digits" +"\n" +
+                    "7. Find digit" + "\n" +
+                    "0. Enter 0 to exit");
+
+            return userOptions = cin.nextInt();
+        } while (userOptions > 0 && userOptions < 7);
+    }
+
     public static int findDigit(int number, int position) {
         int place = 1;
 
