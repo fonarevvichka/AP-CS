@@ -36,6 +36,17 @@ public class Lab1 {
                     System.out.println("Please enter the power: ");
                     int power = cin.nextInt();
                     System.out.println("The result of the calculation is: " + power(base, power));
+                    break;
+                case 3:
+                    System.out.println("Please enter your first number: ");
+                    int userNum = cin.nextInt();
+                    System.out.println(prime(userNum));
+                    break;
+                case 4:
+                    System.out.println("Please enter the number you would like to factor: ");
+                    userNum = cin.nextInt();
+                    displayFactors(userNum);
+                    break;
             }
         } while (z != 0);
     }
