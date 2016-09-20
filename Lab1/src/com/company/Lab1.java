@@ -14,7 +14,7 @@ public class Lab1 {
 //        displayFactors(4);
 //        System.out.println(GCD(7, 28));
 //        System.out.println( prime(7));
-//        System.out.println(power(25, -1));
+//        System.out.println(power(25, 3));
 //        System.out.println(findDigit(123472, 9));
 //        downDigits(12345);
 //        System.out.println(countDigits(123.74));
@@ -24,28 +24,71 @@ public class Lab1 {
             z = options();
             switch(z) {
                 case 1:
-                    System.out.println("Please enter your first number: ");
+                    System.out.println("Please enter your first number (greater than 0): ");
                     int userNum1 = cin.nextInt();
-                    System.out.println("Please enter your second number: ");
+                    System.out.println("Please enter your second number (greater than 0): ");
                     int userNum2 = cin.nextInt();
-                    System.out.println("The greatest common divisor is: " + GCD(userNum1, userNum2));
+                    if(userNum1 < 0 || userNum2 < 0) {
+                        System.out.println("Invalid input, try again.");
+                        break;
+                    }
+                    else
+                        System.out.println("The greatest common divisor is: " + GCD(userNum1, userNum2));
                     break;
                 case 2:
-                    System.out.println("Please enter the base: ");
+                    System.out.println("Please enter the base (integer values only): ");
                     int base = cin.nextInt();
-                    System.out.println("Please enter the power: ");
+                    System.out.println("Please enter the power (integer values only): ");
                     int power = cin.nextInt();
-                    System.out.println("The result of the calculation is: " + power(base, power));
+                    if (base == 0 && power < 0)
+                        System.out.println("Invalid combination, please try again.");
+                    else
+                        System.out.println("The result of the calculation is: " + power(base, power));
                     break;
                 case 3:
-                    System.out.println("Please enter your first number: ");
+                    System.out.println("Please enter your number: ");
                     int userNum = cin.nextInt();
-                    System.out.println(prime(userNum));
+                    if(userNum > 0) {
+                        if (prime(userNum))
+                            System.out.println(userNum + " is prime.");
+                        else
+                            System.out.println(userNum + " is not prime.");
+                    }
+                    else
+                        System.out.println("Invalid input. Non zero, positive integers only. Please try again.");
                     break;
                 case 4:
                     System.out.println("Please enter the number you would like to factor: ");
                     userNum = cin.nextInt();
-                    displayFactors(userNum);
+                    if(userNum > 0)
+                        displayFactors(userNum);
+                    else
+                        System.out.println("Invalid input. Non zero, positive integers only. Please don't try again.");
+                    break;
+                case 5:
+                    System.out.println("Please enter the number you would like to break down: ");
+                    userNum = cin.nextInt();
+                    downDigits(userNum);
+                    break;
+                case 6:
+                    System.out.println("Please enter the number you would like to process: ");
+                    userNum = cin.nextInt();
+                    System.out.println("The number of digits is: " + countDigits(userNum));
+                    break;
+                case 7:
+                    System.out.println("Please enter the number you would like to parse: ");
+                    userNum1 = cin.nextInt();
+                    System.out.println("Please enter the place you are looking for (count from the right)");
+                    userNum2 = cin.nextInt();
+                    if(userNum1 > 0 && userNum2 > 0 && countDigits(userNum1) >= userNum2) {
+                        System.out.println("The digit at position " +
+                                userNum2 +
+                                " in the number " +
+                                userNum1 + " is " +
+                                findDigit(userNum1, userNum2));
+                    }
+                    else
+                        System.out.println("Invalid input. Non zero, positive integers only (Length of the number must be greater than the position). Please try again.");
                     break;
             }
         } while (z != 0);
@@ -54,7 +97,7 @@ public class Lab1 {
         int userOptions = 0;
 
         do {
-            System.out.println("Please enter what method you want to run: ");
+            System.out.println("\n" + "Please enter what method you want to run: ");
             System.out.println("1. Greatest Common Divisor" + "\n" +
                     "2. Power" + "\n" +
                     "3. Prime Checker" + "\n" +
@@ -64,8 +107,12 @@ public class Lab1 {
                     "7. Find digit" + "\n" +
                     "0. Enter 0 to exit");
 
-            return userOptions = cin.nextInt();
-        } while (userOptions > 0 && userOptions < 7);
+            if((userOptions = cin.nextInt()) < 8)
+                return userOptions;
+            else
+                System.out.println("Invalid method call, please try again");
+        } while (userOptions > 0 && userOptions < 8);
+        return -1;
     }
 
     public static int findDigit(int number, int position) {
@@ -86,7 +133,7 @@ public class Lab1 {
         }
 
         if(exponent != 0) {
-            for (int i = 2; i < exponent; i++) {
+            for (int i = 1; i < exponent; i++) {
                 finalNum *= base;
             }
             if(change == true)
@@ -120,7 +167,7 @@ public class Lab1 {
 
                while ((a % i) != 0 || (b % i) != 0) {
 
-                   System.out.println(i);
+//                   System.out.println(i);
                    i--;
                }
                return i;
