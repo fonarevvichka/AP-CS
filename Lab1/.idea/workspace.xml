@@ -25,20 +25,10 @@
       <file leaf-file-name="Lab1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="3672">
+              <caret line="216" column="1" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
               <folding>
-                <element signature="e#0#7671#0" expanded="true" />
-                <element signature="method#main#0;class#Lab1#0" expanded="false" />
-                <element signature="e#219#247#0" expanded="false" />
-                <element signature="method#options#0;class#Lab1#0" expanded="false" />
-                <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-                <element signature="method#power#0;class#Lab1#0" expanded="false" />
-                <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-                <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-                <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-                <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-                <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+                <element signature="e#0#7696#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,7 +51,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="27" />
-    <option name="width" value="960" />
+    <option name="width" value="1920" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -89,6 +79,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -142,7 +133,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -405,8 +395,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="960" height="1053" extended-state="4" />
-    <editor active="false" />
+    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -447,7 +437,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="10" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -461,17 +451,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -481,17 +461,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -501,17 +471,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -521,17 +481,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -541,17 +491,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -561,17 +501,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -581,17 +511,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -601,17 +521,17 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -630,26 +550,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="3672">
+          <caret line="216" column="1" selection-start-line="216" selection-start-column="1" selection-end-line="216" selection-end-column="1" />
           <folding>
-            <element signature="e#0#7671#0" expanded="true" />
-            <element signature="method#main#0;class#Lab1#0" expanded="false" />
-            <element signature="e#219#247#0" expanded="false" />
-            <element signature="method#options#0;class#Lab1#0" expanded="false" />
-            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
-            <element signature="method#power#0;class#Lab1#0" expanded="false" />
-            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
-            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
-            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
-            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
-            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="e#0#7696#0" expanded="true" />
           </folding>
         </state>
       </provider>

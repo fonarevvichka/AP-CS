@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Lab1 {
     static Scanner cin = new Scanner(System.in);
+
     public static void main(String[] args) {
 //        displayFactors(4);
 //        System.out.println(GCD(7, 28));
@@ -113,6 +114,7 @@ public class Lab1 {
         } while (userOptions > 0 && userOptions < 8);
         return -1;
     }
+
     public static int findDigit(int number, int position) {
         int place = 1;
 
@@ -144,7 +146,7 @@ public class Lab1 {
             return 1;
     }
     public static boolean prime(int num) {
-       int halfNum = num / 2;
+        int halfNum = num / 2;
         for (int i = 2; i < halfNum; i++) {
             if((num % i) == 0)
                 return false;
@@ -158,32 +160,32 @@ public class Lab1 {
             return -1;
 
         else if (a > b) {
-           if ((a % b) == 0)
-               return b;
-           else {
-               i = b - 1;
+            if ((a % b) == 0)
+                return b;
+            else {
+                i = b - 1;
 
-               while ((a % i) != 0 || (b % i) != 0) {
+                while ((a % i) != 0 || (b % i) != 0) {
 
 //                   System.out.println(i);
-                   i--;
-               }
-               return i;
-           }
-       }
-       else if(b > a) {
-           if ((b % a) == 0) {
-               return a;
-           }
-           else {
-               i = a - 1;
-               while ((a % i) != 0 || (b % i) != 0) {
-                   i--;
-               }
-               return i;
-           }
-       }
-       else
+                    i--;
+                }
+                return i;
+            }
+        }
+        else if(b > a) {
+            if ((b % a) == 0) {
+                return a;
+            }
+            else {
+                i = a - 1;
+                while ((a % i) != 0 || (b % i) != 0) {
+                    i--;
+                }
+                return i;
+            }
+        }
+        else
             return a;
     }
     public static void displayFactors(int number) {
@@ -213,4 +215,3 @@ public class Lab1 {
         return numberLength;
     }
 }
-
