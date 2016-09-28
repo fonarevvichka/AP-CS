@@ -25,10 +25,13 @@
       <file leaf-file-name="Lab1.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="86" column="43" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+            <state relative-caret-position="162">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
-                <element signature="e#0#7673#0" expanded="true" />
+                <element signature="e#0#7671#0" expanded="true" />
+                <element signature="method#main#0;class#Lab1#0" expanded="false" />
+                <element signature="e#219#247#0" expanded="false" />
+                <element signature="method#options#0;class#Lab1#0" expanded="false" />
                 <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
                 <element signature="method#power#0;class#Lab1#0" expanded="false" />
                 <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -58,7 +61,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="27" />
-    <option name="width" value="1920" />
+    <option name="width" value="960" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -86,7 +89,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -140,11 +143,11 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/test" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/3 Recursion Lab/src/com/company/Main.java" />
   </component>
   <component name="RunManager" selected="Application.Lab1">
     <configuration default="false" name="Lab1" type="Application" factoryName="Application" temporary="true">
@@ -402,33 +405,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="27" width="960" height="1053" extended-state="4" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29112554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49895832" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29112554" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -458,7 +461,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -475,7 +481,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -492,7 +501,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -509,7 +521,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -526,7 +541,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -543,7 +561,50 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
+            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
+            <element signature="method#power#0;class#Lab1#0" expanded="false" />
+            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
+            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
+            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
+            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
+            <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
+            <element signature="method#power#0;class#Lab1#0" expanded="false" />
+            <element signature="method#prime#0;class#Lab1#0" expanded="false" />
+            <element signature="method#GCD#0;class#Lab1#0" expanded="false" />
+            <element signature="method#displayFactors#0;class#Lab1#0" expanded="false" />
+            <element signature="method#downDigits#0;class#Lab1#0" expanded="false" />
+            <element signature="method#countDigits#0;class#Lab1#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />
@@ -562,16 +623,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/IdeaProjects/3 Recursion Lab/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Lab1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="86" column="43" selection-start-line="86" selection-start-column="43" selection-end-line="86" selection-end-column="43" />
+        <state relative-caret-position="162">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
-            <element signature="e#0#7673#0" expanded="true" />
+            <element signature="e#0#7671#0" expanded="true" />
+            <element signature="method#main#0;class#Lab1#0" expanded="false" />
+            <element signature="e#219#247#0" expanded="false" />
+            <element signature="method#options#0;class#Lab1#0" expanded="false" />
             <element signature="method#findDigit#0;class#Lab1#0" expanded="false" />
             <element signature="method#power#0;class#Lab1#0" expanded="false" />
             <element signature="method#prime#0;class#Lab1#0" expanded="false" />

@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class Lab1 {
     static Scanner cin = new Scanner(System.in);
-
     public static void main(String[] args) {
 //        displayFactors(4);
 //        System.out.println(GCD(7, 28));
@@ -114,7 +113,6 @@ public class Lab1 {
         } while (userOptions > 0 && userOptions < 8);
         return -1;
     }
-
     public static int findDigit(int number, int position) {
         int place = 1;
 
