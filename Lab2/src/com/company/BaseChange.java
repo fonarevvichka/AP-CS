@@ -13,21 +13,41 @@ public class BaseChange {
 //        System.out.println("Please enter your desired base:");
 //        System.out.println(findDigit(10, 2));
 //        System.out.println(countDigits(10000));
-        System.out.println((addition(1234, 1234, 5)));
+//        System.out.println((addition(1234, 1234, 5)));
+        multiplication(101, 1, 2);
     }
     public static void multiplication(int num1, int num2, int base) {
-    int loopLength, finalNum = 0, carryOver = 0;
+        int loopLength, finalNum = 0, carryOver = 0, shortLoop;
         int numberOfDigits1 = countDigits(num1);
         int numberOfDigits2 = countDigits(num2);
+        boolean firstNum = false;
 
-        if (numberOfDigits1 > numberOfDigits2)
+        if (numberOfDigits1 > numberOfDigits2) {
             loopLength = numberOfDigits1;
-        else
-            loopLength = numberOfDigits2;
-
-        for(int i = 1; i <= (loopLength + 1); i++) {
-
+            shortLoop = numberOfDigits2;
+            firstNum = true;
+//            System.out.println(loopLength + " " + shortLoop + " " + firstNum);
         }
+        else {
+            loopLength = numberOfDigits2;
+            shortLoop = numberOfDigits1;
+        }
+        for(int i = 1; i <= (loopLength + 1); i++) {
+            int temp1 = findDigit(num1, i);
+            if(!firstNum)
+                temp1 = findDigit(num2, i);
+//System.out.println(temp1);
+            for(int j = 1; j <= shortLoop + 1; j++) {
+                int temp2 = findDigit(num2, j);
+                if(!firstNum)
+                    temp2 = findDigit(num1, j);
+                finalNum += (((temp1 * temp2) + carryOver) % base) * (int) power(10, i+j - 2);
+                carryOver = ((((temp1 * temp2) + carryOver) / base));
+            }
+//           System.out.println(i);
+        }
+        System.out.println(finalNum);
+        //install karabiner
     //nested loop that cycles through second digit in big loop, and first digit top loop
     }
     public static int addition(int num1, int num2, int base) {
