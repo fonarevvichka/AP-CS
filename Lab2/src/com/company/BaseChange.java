@@ -1,7 +1,10 @@
+//Vichka Fonarev
+//Mr. Harris AP-CS F Block
+//Lab 2 Base change 10.03.16
+
+
 package com.company;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class BaseChange {
