@@ -13,15 +13,15 @@ public class BaseChange {
 
         Scanner cin = new Scanner(System.in);
         for (int i = 1; i < 11; i++) {
-            System.out.println("\n" + "Please enter your desired base:");
+
             String stringBase = new String(cin.next());
             int base = baseConversion(stringBase);
             if (base != -1) {
-                System.out.println("Please enter your first number");
+
                 int num1 = cin.nextInt();
-                System.out.println("Please enter your second number");
+
                 int num2 = cin.nextInt();
-                System.out.println("Please enter the desired operation ('+' and '*' only)");
+
                 String operation = cin.next();
                 System.out.println("Output " + i + ":");
                 if (operation.equals("*")) {
