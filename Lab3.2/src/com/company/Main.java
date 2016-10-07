@@ -3,13 +3,13 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(reverse(1234));
+//        System.out.println(reverse(1234));
+        printWithCommas(123456789);
     }
 
     public static String letters(char lastLetter) {
-        String finalString = "";
         if (lastLetter == 'a')
-           return "a";
+            return "a";
         else
             return lastLetter + letters((char) ((int) lastLetter - 1));
     }
@@ -42,7 +42,9 @@ public class Main {
     public static void printWithCommas(int num) {
         if (num < 1000)
             System.out.print(num);
-        else
-            System.out.print(num / (power(num)/1000) + "," + printWithCommas(num/1000);)
+        else {
+            System.out.print((num/1000) * (power(num)/power(num/1000)) + ",");
+            printWithCommas(num/1000);
+        }
     }
 }
