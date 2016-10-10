@@ -94,11 +94,13 @@ public class Main {
                 return 10 * power(num/10);
     }
     public static void printWithCommas(int num) {
+        int digits = num%1000;
         if (num < 1000)
             System.out.print(num);
         else {
             printWithCommas(num / 1000);
-            System.out.print("," + num % 1000);
+            System.out.print("," + (digits / 100) % 10 + "" + (digits/10) % 10 + "" + digits % 10);
+//            System.out.print("," + num % 1000);
         }
     }
     public static void base5(int num) {
