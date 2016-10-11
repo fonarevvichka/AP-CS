@@ -65,7 +65,7 @@ public class Main {
     public static boolean powerOf3(int num) {
         if ((num % 3) != 0)
             return false;
-        else if (num >1)
+        else if (num > 3)
             return powerOf3(num/3);
         else
             return true;
