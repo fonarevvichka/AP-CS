@@ -1,4 +1,10 @@
+// Vichka Fonarev
+// F Block AP-CS
+// Lab 4 BlackBox
+
 package com.company;
+
+import sun.awt.ConstrainableGraphics;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -11,25 +17,44 @@ public class BlackBox {
         char whiteBox[][] = arrayCreate(true);
         int position[] = initPositionFinder(0);
         boolean stop = false;
-        int trialNum = 0;
-
+        int trialNum = 0, shotNumber = 0, guessNumber = 0, mirrorsCorrect = 0;
 //        printArray(blackBox);
         while(!stop) {
-            System.out.println("Trial Number: " + trialNum++);
+            System.out.println("Trial Number: " + trialNum++ + "\n" +
+                               "Number of shots: " + shotNumber + "\n" +
+                               "Number of guesses: " + guessNumber);
             printArray(whiteBox);
-           switch (menu(cin)) {
-               case (1):
+            int option = menu(cin);
+            switch (option) {
+                case (1):
                     laserShootCaller(cin, position, blackBox);
-                   break;
-               case (2):
-                   mirrorGuess(cin, position, blackBox, whiteBox);
-                   break;
-               case (0):
-                   stop = true;
-                   System.out.println("The black box looked like this: ");
-                   printArray(blackBox);
-                   break;
+                    shotNumber++;
+                    break;
+                case (2):
+                    mirrorsCorrect = mirrorGuess(cin, position, blackBox, whiteBox, mirrorsCorrect);
+                    guessNumber++;
+                    if(mirrorsCorrect > 9) {
+                        System.out.println("That's its, you finished, you can go outside now" );
+                        stop = true;
+                    }
+                    break;
+                case(4):
+                   System.out.println("How clever: ");
+                    guessNumber = 0;
+                    shotNumber = 0;
+                    trialNum = 0;
+                    printArray(blackBox);
+                    break;
+                case (0):
+                    stop = true;
+                    System.out.println("The black box looked like this: ");
+                    printArray(blackBox);
+                    break;
            }
+            if(option > 4){
+               System.out.println("Invalid menu option, please try again");
+                trialNum--;
+            }
        }
     }
     public static int[] initPositionFinder(int shootLocation) {
@@ -232,40 +257,41 @@ public class BlackBox {
         }
         return false;
     }
-    public static void mirrorGuess(Scanner cin, int[] position, char [][] blackBox, char[][] whiteBox) {
+    public static int mirrorGuess(Scanner cin, int[] position, char [][] blackBox, char[][] whiteBox, int mirrorsCorrect) {
         System.out.println("Please enter the x coordinate of your guess: ");
         position[1] = cin.nextInt();
         if((position[1] > -1 && position[1] < 10) || (position[1] > 19 && position[1] < 30)) {
             if (position[1] > 19)
-                position[1] = -20;
+                position[1] = position[1] - 20;
             System.out.println("Please enter the y coordinate of your guess: ");
             position[0] = cin.nextInt();
             if ((position[0] > 9 && position[0] < 20) || (position[0] > 29 && position[0] < 40)) {
                 if (position[0] > 29)
-                    position[0] = position[0] -30;
+                    position[0] = position[0] - 30;
                 else
                     position[0] = 19 - position[0];
                 //--------------- checking mirror guess ----------------//
-                if (locationChecker(blackBox, whiteBox, position))
-                    System.out.println("Your guess was correct.");
-                else
+                if (locationChecker(blackBox, whiteBox, position)) {
+                    System.out.println("Your guess was correct." );
+                    mirrorsCorrect++;
+            } else
                     System.out.println("Your guess was incorrect.");
                 //--------------- checking mirror guess ----------------//
             } else {
-                System.out.println("Invalid input, please try again");
-                mirrorGuess(cin, position, blackBox, whiteBox);
+                System.out.println("Invalid Y input, please try again");
+                mirrorGuess(cin, position, blackBox, whiteBox, mirrorsCorrect);
             } } else{
-                System.out.println("Invalid input, please try again");
-                mirrorGuess(cin, position, blackBox, whiteBox);
+                System.out.println("Invalid X input, please try again");
+                mirrorGuess(cin, position, blackBox, whiteBox, mirrorsCorrect);
             }
-
+        return mirrorsCorrect;
     }
     public static void laserShootCaller(Scanner cin, int[] position, char[][] blackBox) {
         System.out.println("Please enter the number you would like to shoot from: ");
         int laserOrigin = cin.nextInt();
         if (laserOrigin > -1 && 40 > laserOrigin) {
             position = initPositionFinder(laserOrigin);
-            System.out.println("The laser exited at: " + shootLaser(blackBox, position));
+            System.out.println("The laser exited at: " + shootLaser(blackBox, position) + "\n");
         } else {
            System.out.println("Laser origin out of range, please try again.");
             laserShootCaller(cin, position, blackBox);
