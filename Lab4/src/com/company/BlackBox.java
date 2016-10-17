@@ -13,8 +13,7 @@ public class BlackBox {
 
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
-        char blackBox[][] = arrayCreate(false);
-        char whiteBox[][] = arrayCreate(true);
+        char blackBox[][] = arrayCreate();
         int position[] = initPositionFinder(0);
         boolean stop = false;
         int trialNum = 0, shotNumber = 0, guessNumber = 0, mirrorsCorrect = 0;
@@ -23,7 +22,7 @@ public class BlackBox {
             System.out.println("Trial Number: " + trialNum++ + "\n" +
                                "Number of shots: " + shotNumber + "\n" +
                                "Number of guesses: " + guessNumber);
-            printArray(whiteBox);
+            printArray(blackBox);
             int option = menu(cin);
             switch (option) {
                 case (1):
@@ -31,7 +30,7 @@ public class BlackBox {
                     shotNumber++;
                     break;
                 case (2):
-                    mirrorsCorrect = mirrorGuess(cin, position, blackBox, whiteBox, mirrorsCorrect);
+                    mirrorsCorrect = mirrorGuess(cin, position, blackBox, mirrorsCorrect);
                     guessNumber++;
                     if(mirrorsCorrect > 9) {
                         System.out.println("That's its, you finished, you can go outside now" );
@@ -43,12 +42,12 @@ public class BlackBox {
                     guessNumber = 0;
                     shotNumber = 0;
                     trialNum = 0;
-                    printArray(blackBox);
+                    cheatDisplay(blackBox);
                     break;
                 case (0):
                     stop = true;
                     System.out.println("The black box looked like this: ");
-                    printArray(blackBox);
+                    cheatDisplay(blackBox);
                     break;
            }
             if(option > 4){
@@ -84,9 +83,9 @@ public class BlackBox {
         int xPosition = position[1];
         if(xPosition >= 0 && xPosition <= 9 && yPosition >= 0 && yPosition <= 9) {
             //--------------- check --------------------//
-            if (blackBox[yPosition][xPosition] == '\\')
+            if (blackBox[yPosition][xPosition] == '2' || blackBox[yPosition][xPosition] == '4')
                 position[2] = backSlash(position[2]);
-            if (blackBox[yPosition][xPosition] == '/')
+            if (blackBox[yPosition][xPosition] == '1' ||blackBox[yPosition][xPosition] == '3')
                 position[2] = forwardSlash(position[2]);
             //--------------- check --------------------//
             position = moveLaser(position);
@@ -97,18 +96,16 @@ public class BlackBox {
         }
         return finalPosition(position);
     }
-    public static char[][] arrayCreate(boolean clean) {
+    public static char[][] arrayCreate() {
         char blackBox[][] = new char[10][10];
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                blackBox[j][i] = '.';
+                blackBox[j][i] = '0';
             }
         }
-        if(!clean) {
-            for (int i = 0; i < 10; i++)
-                generateMirror(blackBox);
-        }
+        for (int i = 0; i < 10; i++)
+            generateMirror(blackBox);
         return blackBox;
     }
     public static char[][] generateMirror(char[][] blackBox) {
@@ -117,21 +114,21 @@ public class BlackBox {
         int mirrorLocationY = rand.nextInt(10);
         int mirrorType = rand.nextInt(2);
 
-        if (blackBox[mirrorLocationY][mirrorLocationX] == '/' || blackBox[mirrorLocationY][mirrorLocationX] == '\\')
+        if (blackBox[mirrorLocationY][mirrorLocationX] == '1' || blackBox[mirrorLocationY][mirrorLocationX] == '2')
             generateMirror(blackBox);
         else {
             if (mirrorType == 1) {
-                blackBox[mirrorLocationY][mirrorLocationX] = '/';
+                blackBox[mirrorLocationY][mirrorLocationX] = '1';
 //                System.out.println(mirrorLocationX + " - x | y - " + mirrorLocationY);
             }
             else{
-                blackBox[mirrorLocationY][mirrorLocationX] = '\\';
+                blackBox[mirrorLocationY][mirrorLocationX] = '2';
 //                System.out.println(mirrorLocationX + " - x | y - " + mirrorLocationY);
             }
         }
         return blackBox;
     }
-    public static void printArray(char[][] whiteBox) {
+    public static void printArray(char[][] blackBox) {
 
 //------------ top row numbers ---------------//
         System.out.print("   ");
@@ -144,7 +141,20 @@ public class BlackBox {
         for (int i = 0; i < 10; i++) {
             System.out.print(19 - i + " ");
             for (int j = 0; j < 10; j++) {
-                System.out.print(whiteBox[i][j] + " ");
+//                System.out.print(blackBox[i][j] + " ");
+                switch(blackBox[i][j]) {
+                    case('0'):
+                    case('1'):
+                    case('2'):
+                        System.out.print('.' + " ");
+                        break;
+                    case('3'):
+                        System.out.print('/' + " ");
+                        break;
+                    case('4'):
+                        System.out.print('\\' + " ");
+                        break;
+                }
             }
             System.out.print(30 + i + " ");
             System.out.print("\n");
@@ -249,15 +259,19 @@ public class BlackBox {
         System.out.println("Enter choice: ");
         return cin.nextInt();
     }
-    public static boolean locationChecker(char[][] blackBox, char[][] whiteBox, int[] position) {
+    public static boolean locationChecker(char[][] blackBox, int[] position) {
         char toCompare = blackBox[position[0]][position[1]];
-        if (toCompare == '\\' || toCompare == '/') {
-            whiteBox[position[0]][position[1]] = toCompare;
+        if (toCompare == '1') {
+            blackBox[position[0]][position[1]] = '3';
+            return true;
+        }
+        else if(toCompare == '2') {
+            blackBox[position[0]][position[1]] = '4';
             return true;
         }
         return false;
     }
-    public static int mirrorGuess(Scanner cin, int[] position, char [][] blackBox, char[][] whiteBox, int mirrorsCorrect) {
+    public static int mirrorGuess(Scanner cin, int[] position, char [][] blackBox, int mirrorsCorrect) {
         System.out.println("Please enter the x coordinate of your guess: ");
         position[1] = cin.nextInt();
         if((position[1] > -1 && position[1] < 10) || (position[1] > 19 && position[1] < 30)) {
@@ -271,7 +285,7 @@ public class BlackBox {
                 else
                     position[0] = 19 - position[0];
                 //--------------- checking mirror guess ----------------//
-                if (locationChecker(blackBox, whiteBox, position)) {
+                if (locationChecker(blackBox, position)) {
                     System.out.println("Your guess was correct." );
                     mirrorsCorrect++;
             } else
@@ -279,10 +293,10 @@ public class BlackBox {
                 //--------------- checking mirror guess ----------------//
             } else {
                 System.out.println("Invalid Y input, please try again");
-                mirrorGuess(cin, position, blackBox, whiteBox, mirrorsCorrect);
+                mirrorGuess(cin, position, blackBox, mirrorsCorrect);
             } } else{
                 System.out.println("Invalid X input, please try again");
-                mirrorGuess(cin, position, blackBox, whiteBox, mirrorsCorrect);
+                mirrorGuess(cin, position, blackBox, mirrorsCorrect);
             }
         return mirrorsCorrect;
     }
@@ -296,5 +310,49 @@ public class BlackBox {
            System.out.println("Laser origin out of range, please try again.");
             laserShootCaller(cin, position, blackBox);
         }
+    }
+    public static void cheatDisplay(char[][] blackBox) {
+
+//------------ top row numbers ---------------//
+        System.out.print("   ");
+        for (int i = 20; i < 30; i++)
+            System.out.print(i);
+        System.out.print("\n");
+//------------ top row numbers ---------------//
+
+//-------------- array -----------------------//
+        for (int i = 0; i < 10; i++) {
+            System.out.print(19 - i + " ");
+            for (int j = 0; j < 10; j++) {
+//                System.out.print(blackBox[i][j] + " ");
+                switch(blackBox[i][j]) {
+                    case('0'):
+                        System.out.print('.' + " ");
+                        break;
+                    case('1'):
+                        System.out.print('/' + " ");
+                        break;
+                    case('2'):
+                        System.out.print('\\' + " ");
+                        break;
+                    case('3'):
+                        System.out.print('/' + " ");
+                        break;
+                    case('4'):
+                        System.out.print('\\' + " ");
+                        break;
+                }
+            }
+            System.out.print(30 + i + " ");
+            System.out.print("\n");
+        }
+//-------------- array -----------------------//
+
+//------------ bottom row numbers -------------//
+        System.out.print("   ");
+        for (int i = 0; i < 10; i++)
+            System.out.print(i + " ");
+        System.out.print("\n");
+//------------ bottom row numers -------------//
     }
 }
