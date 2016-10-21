@@ -18,6 +18,7 @@ public class BlackBox {
         boolean stop = false;
         int trialNum = 0, shotNumber = 0, guessNumber = 0, mirrorsCorrect = 0;
 //        printArray(blackBox);
+        System.out.println("When times are tough, 4 is good option" + "\n");
         while(!stop) {
             System.out.println("Trial Number: " + trialNum++ + "\n" +
                                "Number of shots: " + shotNumber + "\n" +
@@ -34,6 +35,7 @@ public class BlackBox {
                     guessNumber++;
                     if(mirrorsCorrect > 9) {
                         System.out.println("That's its, you finished, you can go outside now" );
+                        System.out.println("You finished with: " + guessNumber + " guesses" + ", and with " + shotNumber + " shots.");
                         stop = true;
                     }
                     break;
