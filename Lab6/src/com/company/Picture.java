@@ -139,7 +139,7 @@ public class Picture extends SimplePicture {
         Pixel[][] pixels = this.getPixels2D();
         for (Pixel[] rowArray : pixels) {
             for (Pixel pixelObj : rowArray) {
-                pixelObj.setRed(pixelObj.getRed() * 90000);
+                pixelObj.setRed(pixelObj.getRed() * 6);
             }
         }
     }
@@ -268,13 +268,13 @@ public class Picture extends SimplePicture {
     }
     public void mirrorGull() {
         Pixel[][] pixels = this.getPixels2D();
-        int mirrorPoint = 235;
+        int mirrorPoint = 232;
         Pixel leftPixel = null;
         Pixel rightPixel = null;
-        for(int row = 319; row > 233; row--) {
-            for(int col = 345; col > 231; col--){
+        for(int row = 232; row < 320; row++) {
+            for(int col = 230; col < 345; col++){
                 rightPixel = pixels[row][col];
-                leftPixel = pixels[row][mirrorPoint + (mirrorPoint - col)];
+                leftPixel = pixels[row-2][mirrorPoint + (mirrorPoint - col)];
                 leftPixel.setColor(rightPixel.getColor());
             }
         }
@@ -308,7 +308,7 @@ public class Picture extends SimplePicture {
             }
         }
     }
-    public void copyV2(Picture fromPic, int startRow, int endRow, int startCol, int endCol) {
+    public void copyV2(Picture fromPic, int startRow, int startCol, int endRow, int endCol) {
         Pixel fromPixel = null;
         Pixel toPixel = null;
         Pixel[][] toPixels = this.getPixels2D();
@@ -342,9 +342,18 @@ public class Picture extends SimplePicture {
         this.write("collage.jpg");
     }
     public void myCollage() {
-        Picture flower1 = new Picture("beach.jpg");
-        this.copyV2(flower1,10,20, 0, 100);
-        this.write("mycollage.jpg");
+        Picture flower1 = new Picture("flower1.jpg");
+        Picture flower2 = new Picture("flower2.jpg");
+        this.copyV2(flower1, 0, 0, 100, 200);
+        this.copyV2(flower2, 100, 0, 200, 100);
+        this.copyV2(flower1, 200, 0, 300, 100);
+        Picture flowerNoBlue = new Picture(flower2);
+        flowerNoBlue.zeroBlue();
+        this.copyV2(flowerNoBlue, 300, 0, 400, 100);
+        this.copyV2(flower1, 400, 0, 480, 100);
+        this.copyV2(flower2, 500, 0, 480, 100);
+        this.mirrorVertical();
+        this.write("collage.jpg");
     }
 
     /**
@@ -361,7 +370,7 @@ public class Picture extends SimplePicture {
         Color rightColor = null;
         for (int row = 0; row < pixels.length -1; row++) {
             for (int col = 0;
-                 col < pixels[0].length - 1; col++) {
+                col < pixels[0].length - 1; col++) {
                 leftPixel = pixels[row][col];
                 rightPixel = pixels[row][col + 1];
                 topPixel = pixels[row][col];
@@ -375,7 +384,9 @@ public class Picture extends SimplePicture {
             }
         }
     }
+    public void edgeDetection2(int edgeDist) {
 
+    }
 
     /* Main method for testing - each class in Java can have a main
      * method
