@@ -21,7 +21,7 @@
     <favorites_list name="Lab6" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.54987687">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
@@ -106,14 +106,19 @@
           <file leaf-file-name="Picture.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/company/Picture.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="409">
-                  <caret line="287" column="46" selection-start-line="287" selection-start-column="46" selection-end-line="287" selection-end-column="46" />
+                <state relative-caret-position="415">
+                  <caret line="373" column="51" selection-start-line="373" selection-start-column="51" selection-end-line="373" selection-end-column="51" />
                   <folding>
                     <element signature="docComment;method#mirrorVertical#0;class#Picture#0" expanded="false" />
                     <element signature="method#mirrorVertical#0;class#Picture#0" expanded="false" />
                     <element signature="docComment;method#mirrorTemple#0;class#Picture#0" expanded="false" />
                     <element signature="method#mirrorTemple#0;class#Picture#0" expanded="false" />
                     <element signature="method#mirrorArms#0;class#Picture#0" expanded="false" />
+                    <element signature="method#copy#0;class#Picture#0" expanded="false" />
+                    <element signature="method#copyV2#0;class#Picture#0" expanded="false" />
+                    <element signature="method#createCollage#0;class#Picture#0" expanded="false" />
+                    <element signature="method#myCollage#0;class#Picture#0" expanded="false" />
+                    <element signature="method#main#0;class#Picture#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -132,7 +137,8 @@
                 <state relative-caret-position="196">
                   <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
                   <folding>
-                    <marker date="1478485428722" expanded="true" signature="3716:4153" ph="//..." />
+                    <marker date="1478490014527" expanded="true" signature="3421:4313" ph="{...}" />
+                    <marker date="1478490014527" expanded="true" signature="3871:4307" ph="//..." />
                   </folding>
                 </state>
               </provider>
@@ -145,8 +151,8 @@
           <file leaf-file-name="PictureTester.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/com/company/PictureTester.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="157">
-                  <caret line="113" column="29" selection-start-line="113" selection-start-column="29" selection-end-line="113" selection-end-column="29" />
+                <state relative-caret-position="481">
+                  <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
                   <folding />
                 </state>
               </provider>
@@ -708,7 +714,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -796,6 +802,11 @@
             <element signature="docComment;method#mirrorTemple#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorTemple#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorArms#0;class#Picture#0" expanded="false" />
+            <element signature="method#copy#0;class#Picture#0" expanded="false" />
+            <element signature="method#copyV2#0;class#Picture#0" expanded="false" />
+            <element signature="method#createCollage#0;class#Picture#0" expanded="false" />
+            <element signature="method#myCollage#0;class#Picture#0" expanded="false" />
+            <element signature="method#main#0;class#Picture#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -805,7 +816,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1478485428722" expanded="true" signature="3716:4153" ph="//..." />
+            <marker date="1478490014527" expanded="true" signature="3421:4313" ph="{...}" />
+            <marker date="1478490014527" expanded="true" signature="3871:4307" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -889,6 +901,11 @@
             <element signature="docComment;method#mirrorTemple#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorTemple#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorArms#0;class#Picture#0" expanded="false" />
+            <element signature="method#copy#0;class#Picture#0" expanded="false" />
+            <element signature="method#copyV2#0;class#Picture#0" expanded="false" />
+            <element signature="method#createCollage#0;class#Picture#0" expanded="false" />
+            <element signature="method#myCollage#0;class#Picture#0" expanded="false" />
+            <element signature="method#main#0;class#Picture#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -898,7 +915,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1478485428722" expanded="true" signature="3716:4153" ph="//..." />
+            <marker date="1478490014527" expanded="true" signature="3421:4313" ph="{...}" />
+            <marker date="1478490014527" expanded="true" signature="3871:4307" ph="//..." />
           </folding>
         </state>
       </provider>
@@ -1168,26 +1186,40 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/SimplePicture.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10962">
+          <caret line="641" column="0" selection-start-line="641" selection-start-column="0" selection-end-line="641" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/PictureTester.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding>
-            <marker date="1478485428722" expanded="true" signature="3716:4153" ph="//..." />
+            <marker date="1478490014527" expanded="true" signature="3421:4313" ph="{...}" />
+            <marker date="1478490014527" expanded="true" signature="3871:4307" ph="//..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Picture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="287" column="46" selection-start-line="287" selection-start-column="46" selection-end-line="287" selection-end-column="46" />
+        <state relative-caret-position="415">
+          <caret line="373" column="51" selection-start-line="373" selection-start-column="51" selection-end-line="373" selection-end-column="51" />
           <folding>
             <element signature="docComment;method#mirrorVertical#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorVertical#0;class#Picture#0" expanded="false" />
             <element signature="docComment;method#mirrorTemple#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorTemple#0;class#Picture#0" expanded="false" />
             <element signature="method#mirrorArms#0;class#Picture#0" expanded="false" />
+            <element signature="method#copy#0;class#Picture#0" expanded="false" />
+            <element signature="method#copyV2#0;class#Picture#0" expanded="false" />
+            <element signature="method#createCollage#0;class#Picture#0" expanded="false" />
+            <element signature="method#myCollage#0;class#Picture#0" expanded="false" />
+            <element signature="method#main#0;class#Picture#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -114,6 +114,11 @@ public class PictureTester {
         seagull.mirrorGull();
         seagull.explore();
     }
+    public static void testCopyV2() {
+        Picture canvas = new Picture("640x480.jpg");
+        canvas.createCollage();
+        canvas.explore();
+    }
 
     /**
      * Main method for testing.  Every class can have a main
@@ -136,11 +141,11 @@ public class PictureTester {
 //        testMirrorDiagonal();
 //        testMirrorTemple();
 //        testMirrorArms();
-        testMirrorGull();
+//        testMirrorGull();
         //testMirrorDiagonal();
-        //testCollage();
         //testCopy();
-        //testEdgeDetection();
+//        testCopyV2();
+        testEdgeDetection();
         //testEdgeDetection2();
         //testChromakey();
         //testEncodeAndDecode();
