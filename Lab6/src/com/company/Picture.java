@@ -27,7 +27,6 @@ public class Picture extends SimplePicture {
 	 */
         super();
     }
-
     /**
      * Constructor that takes a file name and creates the picture
      *
@@ -37,7 +36,6 @@ public class Picture extends SimplePicture {
         // let the parent class handle this fileName
         super(fileName);
     }
-
     /**
      * Constructor that takes the width and height
      *
@@ -48,7 +46,6 @@ public class Picture extends SimplePicture {
         // let the parent class handle this width and height
         super(width, height);
     }
-
     /**
      * Constructor that takes a picture and creates a
      * copy of that picture
@@ -59,7 +56,6 @@ public class Picture extends SimplePicture {
         // let the parent class do the copy
         super(copyPicture);
     }
-
     /**
      * Constructor that takes a buffered image
      *
@@ -68,9 +64,7 @@ public class Picture extends SimplePicture {
     public Picture(BufferedImage image) {
         super(image);
     }
-
     ////////////////////// methods ///////////////////////////////////////
-
     /**
      * Method to return a string with information about this picture.
      *
@@ -84,7 +78,6 @@ public class Picture extends SimplePicture {
         return output;
 
     }
-
     /**
      * Method to set the blue to 0
      */
@@ -96,8 +89,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
-
     public void keepOnlyBlue() {
         Pixel[][] pixels = this.getPixels2D();
         for (Pixel[] rowArray : pixels) {
@@ -107,7 +98,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
     public void negate() {
         Pixel[][] pixels = this.getPixels2D();
         for (Pixel[] rowArray : pixels) {
@@ -118,7 +108,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
     public void grayscale() {
         int red, green, blue, average;
         Pixel[][] pixels = this.getPixels2D();
@@ -134,7 +123,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
     public void fixUnderWater() {
         Pixel[][] pixels = this.getPixels2D();
         for (Pixel[] rowArray : pixels) {
@@ -188,8 +176,7 @@ public class Picture extends SimplePicture {
             }
         }
     }
-    public void mirrorHorizontal()
-    {
+    public void mirrorHorizontal() {
         Pixel[][] pixels = this.getPixels2D();
         Pixel topPixel = null;
         Pixel bottomPixel = null;
@@ -204,8 +191,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
-
     /**
      * Method that mirrors the picture around a
      * vertical mirror in the center of the picture
@@ -323,7 +308,6 @@ public class Picture extends SimplePicture {
             }
         }
     }
-
     /**
      * Method to create a collage of several pictures
      */
@@ -355,7 +339,6 @@ public class Picture extends SimplePicture {
         this.mirrorVertical();
         this.write("collage.jpg");
     }
-
     /**
      * Method to show large changes in color
      *
@@ -385,7 +368,29 @@ public class Picture extends SimplePicture {
         }
     }
     public void edgeDetection2(int edgeDist) {
+        Pixel leftPixel = null, middlePixel = null, rightPixel = null;
+        Pixel leftComapre = null, rightCompare = null;
+        Pixel[][] pixels = this.getPixels2D();
+        for (int row = 1; row < pixels.length -1; row++) {
+            for (int col = 1; col < pixels[0].length - 1; col++) {
+                leftPixel = pixels[row][col-1];
+                middlePixel = pixels[row][col];
+                rightPixel = pixels[row][col + 1];
 
+                leftPixel.setRed((leftPixel.getRed() + middlePixel.getRed())/2);
+                leftPixel.setGreen((leftPixel.getGreen() + middlePixel.getGreen())/2);
+                leftPixel.setBlue((leftPixel.getBlue() + middlePixel.getBlue()) / 2);
+
+                rightPixel.setRed((rightPixel.getRed() + middlePixel.getRed())/2);
+                rightPixel.setGreen((rightPixel.getGreen() + middlePixel.getGreen())/2);
+                rightPixel.setBlue((rightPixel.getBlue() + middlePixel.getBlue()) / 2);
+
+                if (leftPixel.colorDistance(rightPixel.getColor()) > edgeDist)
+                    leftPixel.setColor(Color.BLACK);
+                else
+                    leftPixel.setColor(Color.WHITE);
+            }
+        }
     }
 
     /* Main method for testing - each class in Java can have a main

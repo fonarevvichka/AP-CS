@@ -60,12 +60,18 @@ public class PictureTester {
      */
     public static void testEdgeDetection() {
         Picture swan = new Picture("swan.jpg");
+        swan.explore();
         swan.edgeDetection(10);
         swan.explore();
     }
 
+    public static void testEdgeDetection2() {
+        Picture swan = new Picture("swan.jpg");
+        swan.edgeDetection2(8);
+        swan.explore();
+    }
     public static void testNegate() {
-        Picture swan = new Picture("water.jpg");
+        Picture swan = new Picture("beach.jpg");
         swan.explore();
         swan.negate();
         swan.explore();
@@ -141,12 +147,12 @@ public class PictureTester {
 //        testMirrorDiagonal();
 //        testMirrorTemple();
 //        testMirrorArms();
-        testMirrorGull();
+//        testMirrorGull();
         //testMirrorDiagonal();
         //testCopy();
 //        testCopyV2();
-//        testEdgeDetection();
-        //testEdgeDetection2();
+        testEdgeDetection();
+        testEdgeDetection2();
         //testChromakey();
         //testEncodeAndDecode();
         //testGetCountRedOverValue(250);
