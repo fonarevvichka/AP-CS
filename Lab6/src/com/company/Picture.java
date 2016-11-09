@@ -23,10 +23,11 @@ public class Picture extends SimplePicture {
      */
     public Picture() {
     /* not needed but use it to show students the implicit call to super()
-	 * child constructors always call a parent constructor
+     * child constructors always call a parent constructor
 	 */
         super();
     }
+
     /**
      * Constructor that takes a file name and creates the picture
      *
@@ -36,6 +37,7 @@ public class Picture extends SimplePicture {
         // let the parent class handle this fileName
         super(fileName);
     }
+
     /**
      * Constructor that takes the width and height
      *
@@ -46,6 +48,7 @@ public class Picture extends SimplePicture {
         // let the parent class handle this width and height
         super(width, height);
     }
+
     /**
      * Constructor that takes a picture and creates a
      * copy of that picture
@@ -56,6 +59,7 @@ public class Picture extends SimplePicture {
         // let the parent class do the copy
         super(copyPicture);
     }
+
     /**
      * Constructor that takes a buffered image
      *
@@ -65,6 +69,15 @@ public class Picture extends SimplePicture {
         super(image);
     }
     ////////////////////// methods ///////////////////////////////////////
+
+    /* Main method for testing - each class in Java can have a main
+     * method
+     */
+    public static void main(String[] args) {
+
+
+    }
+
     /**
      * Method to return a string with information about this picture.
      *
@@ -136,8 +149,8 @@ public class Picture extends SimplePicture {
         Pixel leftPixel = null;
         Pixel rightPixel = null;
         int width = pixels[0].length;
-        for(int row = 0; row < pixels.length; row++) {
-            for(int col = 0; col < width / 2; col++) {
+        for (int row = 0; row < pixels.length; row++) {
+            for (int col = 0; col < width / 2; col++) {
                 leftPixel = pixels[row][col];
                 rightPixel = pixels[row][width - 1 - col];
                 leftPixel.setColor(rightPixel.getColor());
@@ -149,8 +162,8 @@ public class Picture extends SimplePicture {
         Pixel topPixel = null;
         Pixel bottomPixel = null;
         int height = pixels.length;
-        for(int row = 0; row < height; row++) {
-            for(int col = 0; col < pixels[0].length; col++)  {
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < pixels[0].length; col++) {
                 topPixel = pixels[row][col];
                 bottomPixel = pixels[height - 1 - row][col];
                 topPixel.setColor(bottomPixel.getColor());
@@ -181,10 +194,8 @@ public class Picture extends SimplePicture {
         Pixel topPixel = null;
         Pixel bottomPixel = null;
         int height = pixels.length;
-        for (int row = 0; row < height; row++)
-        {
-            for (int col = 0; col < pixels[0].length; col++)
-            {
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < pixels[0].length; col++) {
                 topPixel = pixels[row][col];
                 bottomPixel = pixels[height - 1 - row][col];
                 bottomPixel.setColor(topPixel.getColor());
@@ -223,7 +234,7 @@ public class Picture extends SimplePicture {
         for (int row = 27; row < 97; row++) {
             // loop from 13 to just before the mirror point
             for (int col = 13; col < mirrorPoint; col++) {
-               System.out.println(count++);
+                System.out.println(count++);
                 leftPixel = pixels[row][col];
                 rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
                 rightPixel.setColor(leftPixel.getColor());
@@ -236,31 +247,31 @@ public class Picture extends SimplePicture {
         Pixel topPixel = null;
         Pixel[][] pixels = this.getPixels2D();
 
-        for(int row = 157; row < 191; row++) {
-            for(int col = 104; col < 170; col++) {
+        for (int row = 157; row < 191; row++) {
+            for (int col = 104; col < 170; col++) {
                 topPixel = pixels[row][col];
-                bottomPixel = pixels[mirrorPoint+(mirrorPoint-row)][col];
+                bottomPixel = pixels[mirrorPoint + (mirrorPoint - row)][col];
                 bottomPixel.setColor(topPixel.getColor());
             }
         }
-        for(int row = 170; row < 200; row++) {
-            for(int col = 239; col < 295; col++) {
+        for (int row = 170; row < 200; row++) {
+            for (int col = 239; col < 295; col++) {
                 topPixel = pixels[row][col];
-                bottomPixel = pixels[mirrorPoint+(mirrorPoint-row)][col];
+                bottomPixel = pixels[mirrorPoint + (mirrorPoint - row)][col];
                 bottomPixel.setColor(topPixel.getColor());
             }
         }
     }
     public void mirrorGull() {
         Pixel[][] pixels = this.getPixels2D();
-        int mirrorPoint = 232;
+        int shiftAmount = 120;
         Pixel leftPixel = null;
         Pixel rightPixel = null;
-        for(int row = 232; row < 320; row++) {
-            for(int col = 230; col < 345; col++){
-                rightPixel = pixels[row][col];
-                leftPixel = pixels[row-2][mirrorPoint + (mirrorPoint - col)];
-                leftPixel.setColor(rightPixel.getColor());
+        for (int row = 232; row < 320; row++) {
+            for (int col = 230; col < 345; col++) {
+                leftPixel = pixels[row][col];
+                rightPixel = pixels[row][col + shiftAmount];
+                rightPixel.setColor(leftPixel.getColor());
             }
         }
     }
@@ -300,7 +311,7 @@ public class Picture extends SimplePicture {
         Pixel[][] fromPixels = fromPic.getPixels2D();
         for (int fromRow = 0, toRow = startRow;
              fromRow < fromPixels.length && toRow < endRow; fromRow++, toRow++) {
-            for(int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length &&
+            for (int fromCol = 0, toCol = startCol; fromCol < fromPixels[0].length &&
                     toCol < endCol; fromCol++, toCol++) {
                 fromPixel = fromPixels[fromRow][fromCol];
                 toPixel = toPixels[toRow][toCol];
@@ -326,19 +337,32 @@ public class Picture extends SimplePicture {
         this.write("collage.jpg");
     }
     public void myCollage() {
-        Picture flower1 = new Picture("flower1.jpg");
-        Picture flower2 = new Picture("flower2.jpg");
-        this.copyV2(flower1, 0, 0, 100, 200);
-        this.copyV2(flower2, 100, 0, 200, 100);
-        this.copyV2(flower1, 200, 0, 300, 100);
-        Picture flowerNoBlue = new Picture(flower2);
-        flowerNoBlue.zeroBlue();
-        this.copyV2(flowerNoBlue, 300, 0, 400, 100);
-        this.copyV2(flower1, 400, 0, 480, 100);
-        this.copyV2(flower2, 500, 0, 480, 100);
-        this.mirrorVertical();
-        this.write("collage.jpg");
+        Picture cat1 = new Picture("robot.jpg");
+        Picture stillACat = new Picture("robot.jpg");
+        Picture catQuestionMark = new Picture("robot.jpg");
+
+        cat1.grayscale();
+        this.copy(cat1, 0, 0);
+        cat1.mirrorDiagonal();
+        this.copy(cat1, 0, 100);
+        cat1.keepOnlyBlue();
+        this.copy(cat1, 0, 200);
+
+        stillACat.zeroBlue();
+        this.copy(stillACat, 200, 0);
+        stillACat.negate();
+        this.copy(stillACat, 200, 100);
+        stillACat.mirrorHorizontalBottomToTop();
+        this.copy(stillACat, 200, 200);
+
+        catQuestionMark.mirrorVertical();
+        this.copy(catQuestionMark, 300, 0);
+        catQuestionMark.edgeDetection(10);
+        this.copy(catQuestionMark, 300, 100);
+        catQuestionMark.zeroBlue();
+        this.copy(catQuestionMark, 300, 200);
     }
+
     /**
      * Method to show large changes in color
      *
@@ -351,13 +375,13 @@ public class Picture extends SimplePicture {
         Pixel bottomPixel = null;
         Pixel[][] pixels = this.getPixels2D();
         Color rightColor = null;
-        for (int row = 0; row < pixels.length -1; row++) {
+        for (int row = 0; row < pixels.length - 1; row++) {
             for (int col = 0;
-                col < pixels[0].length - 1; col++) {
+                 col < pixels[0].length - 1; col++) {
                 leftPixel = pixels[row][col];
                 rightPixel = pixels[row][col + 1];
                 topPixel = pixels[row][col];
-                bottomPixel = pixels[row+1][col];
+                bottomPixel = pixels[row + 1][col];
                 rightColor = rightPixel.getColor();
                 if (leftPixel.colorDistance(rightColor) > edgeDist ||
                         topPixel.colorDistance(bottomPixel.getColor()) > edgeDist)
@@ -367,22 +391,23 @@ public class Picture extends SimplePicture {
             }
         }
     }
+
     public void edgeDetection2(int edgeDist) {
         Pixel leftPixel = null, middlePixel = null, rightPixel = null;
         Pixel leftComapre = null, rightCompare = null;
         Pixel[][] pixels = this.getPixels2D();
-        for (int row = 1; row < pixels.length -1; row++) {
+        for (int row = 1; row < pixels.length - 1; row++) {
             for (int col = 1; col < pixels[0].length - 1; col++) {
-                leftPixel = pixels[row][col-1];
+                leftPixel = pixels[row][col - 1];
                 middlePixel = pixels[row][col];
                 rightPixel = pixels[row][col + 1];
 
-                leftPixel.setRed((leftPixel.getRed() + middlePixel.getRed())/2);
-                leftPixel.setGreen((leftPixel.getGreen() + middlePixel.getGreen())/2);
+                leftPixel.setRed((leftPixel.getRed() + middlePixel.getRed()) / 2);
+                leftPixel.setGreen((leftPixel.getGreen() + middlePixel.getGreen()) / 2);
                 leftPixel.setBlue((leftPixel.getBlue() + middlePixel.getBlue()) / 2);
 
-                rightPixel.setRed((rightPixel.getRed() + middlePixel.getRed())/2);
-                rightPixel.setGreen((rightPixel.getGreen() + middlePixel.getGreen())/2);
+                rightPixel.setRed((rightPixel.getRed() + middlePixel.getRed()) / 2);
+                rightPixel.setGreen((rightPixel.getGreen() + middlePixel.getGreen()) / 2);
                 rightPixel.setBlue((rightPixel.getBlue() + middlePixel.getBlue()) / 2);
 
                 if (leftPixel.colorDistance(rightPixel.getColor()) > edgeDist)
@@ -391,14 +416,6 @@ public class Picture extends SimplePicture {
                     leftPixel.setColor(Color.WHITE);
             }
         }
-    }
-
-    /* Main method for testing - each class in Java can have a main
-     * method
-     */
-    public static void main(String[] args) {
-
-
     }
 
 

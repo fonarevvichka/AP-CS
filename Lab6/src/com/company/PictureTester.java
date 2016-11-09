@@ -150,9 +150,9 @@ public class PictureTester {
 //        testMirrorGull();
         //testMirrorDiagonal();
         //testCopy();
-//        testCopyV2();
-        testEdgeDetection();
-        testEdgeDetection2();
+        testCopyV2();
+//        testEdgeDetection();
+//        testEdgeDetection2();
         //testChromakey();
         //testEncodeAndDecode();
         //testGetCountRedOverValue(250);
