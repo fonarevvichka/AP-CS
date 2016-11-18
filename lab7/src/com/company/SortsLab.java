@@ -29,17 +29,21 @@ public class SortsLab {
 			ListSetup.Print (list);
 			System.out.println("Here is the list after the Insertion Sort. ");
 			icount = Sorts.Insertion(list);
+			System.out.println("iCount = " + icount);
 			ListSetup.Print (list);
 			//System.out.println("There were " + icount + " comparisons ");
 			
 			System.out.println("Here is the list after the Selection Sort. ");
 			scount = Sorts.Selection(list2);
+			System.out.println("sCount = " + scount);
 			ListSetup.Print (list2);
 			System.out.println("Here is the list after the Quicksort (split first). ");
 			qcount = Sorts.QuickSort(list3, 0, list.length - 1);
+			System.out.println("qCount = " + qcount);
 			ListSetup.Print (list3);
 			System.out.println("Here is the list after the Merge Sort. ");
 			mcount = Sorts.mergeSort(list4, 0, list.length - 1);
+			System.out.println("mCount = " + mcount);
 			ListSetup.Print (list4);
 
 

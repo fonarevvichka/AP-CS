@@ -9,6 +9,7 @@ package com.company;
 	private static int[] temp;
 	
 	public static int Insertion(int[] list) {
+		int icount = 0;
 		for (int n = 1; n < list.length; n++) {
 			// Save the next element to be inserted:
 			int listTemp = list[n];
@@ -16,29 +17,30 @@ package com.company;
 			// right until you find an element list[i] <= aTemp:
 			int i = n;
 			while (i > 0 && listTemp < list[i-1]) { // everytime it goes back through the list untill it reaches a part that is already correct
+				icount++;
 				list[i] = list[i-1];				// this allows it to check for new errors caused by the first switch of the loop
 				i--;
 			}
-			
 			// Insert the saved element after a[i]:
 			list[i] = listTemp;
 			
 			// Increment n (accomplished by n++ in the for loop).
 		}
 		
-        return 0;
+        return icount;
     }
     public static int Selection(int[] list) {
+		int scount = 0;
 		for (int n = list.length; n > 1; n--) {
 			// Find the index iMax of the largest element
 			//   among list[0], ..., list[n-1]:
 			
 			int iMax = 0;
 			for (int i = 1; i < n; i++) {
+				scount++;
 				if (list[i] > list[iMax])
 					iMax = i; //it goes through the list looking for a largest value and once it finds it it writes it to a new loop
 			}
-			
 			swap (list, iMax, n-1);
 			
 			// int listTemp = list[iMax];
@@ -47,14 +49,16 @@ package com.company;
 			
 			// Decrement n (accomplished by n-- in the for loop).
 		}
-        return 0;
+        return scount;
     }
     public static int Merge(int[] list, int from, int middle, int to) {
+		int mcount = 0;
 		temp = new int[list.length];
 		int i = from, j = middle + 1, k = from;
 		
 		// While both arrays have elements left unprocessed:
 		while (i <= middle && j <= to) {
+			mcount++;
 			if (list[i] < list[j]) {
 				temp[k] = list[i];   // Or simply temp[k] = a[i++];
 				i++;
@@ -84,12 +88,14 @@ package com.company;
 		// Copy temp back into a
 		for (k = from; k <= to; k++)
 			list[k] = temp[k];
-		return 0;
+		return mcount;
     }
 	public static int mergeSort(int[] list, int from, int to) {
 		// this sort individually sorts two halves of the list and then combines them by comparing the lements of each sequantially.
+		int mcount = 0;
 		if (to - from < 2) {       // Base case: 1 or 2 elements
 			if (to > from && list[to] < list[from]) {
+				mcount++;
 				int listTemp = list[to];  // swap a[to] and a[from]
 				list[to] = list[from];
 				list[from] = listTemp;
@@ -97,13 +103,14 @@ package com.company;
 		}
 		else {                     // Recursive case
 			int middle = (from + to) / 2;
-			mergeSort(list, from, middle);
-			mergeSort(list, middle + 1, to);
-			Merge(list, from, middle, to);
+			mcount += mergeSort(list, from, middle);
+			mcount += mergeSort(list, middle + 1, to);
+			mcount += Merge(list, from, middle, to);
 		}
-		return 0;
+		return mcount;
 	}
     public static int QuickSort(int[] list, int from, int to) {
+		int qSort = 0;
 		if (from >= to)
 			return 0;
 		//take a center value and use it as a pivot putting everything lower and higher (hence pivot) repeat on fromed sections recusvily untill sorting is achieved
@@ -118,11 +125,14 @@ package com.company;
 		int i = from; // it uses the pivot point to compare all values to, and places
 					  // those that are smaller switch with the first value of the uncorrected list, thi socntniues until every value has been a pivot
 		int j = to;
-		while (i <= j) {
+		while (i <= j) { // essentially a for loop for the length of the array
+			qSort++;
 			if (list[i] <= list[p])
 				i++;
-			else if (list[j] >= list[p])
+			else if (list[j] >= list[p]) {
+				qSort++;
 				j--;
+			}
 			else {
 				swap (list, i, j);
 				i++;
@@ -142,10 +152,10 @@ package com.company;
 		}
 		
 		// Sort recursively:
-		QuickSort(list, from, p - 1);
-		QuickSort(list, p + 1, to);
+		qSort += QuickSort(list, from, p - 1);
+		qSort += QuickSort(list, p + 1, to);
 		
-		return 0;
+		return qSort;
 	}
     public static int QuickMid(int[] list) {
     
