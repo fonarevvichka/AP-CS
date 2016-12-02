@@ -3,7 +3,7 @@
 //
 //  Driver to initialize and print lists of Arrays.
 //********************************************************************
-package com.company;
+
 import java.util.Random;
 
 public class ListSetup {
