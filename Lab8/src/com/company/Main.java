@@ -11,22 +11,31 @@ public class Main {
         int[] array = generateArray();
         int[] results = new int[2];
         results[0] = 1;
+        System.out.println("Part 1");
         print(array, false);
         System.out.println("\n");
         Arrays.sort(array);
         print(array, true);
-        System.out.println("\n");
-//        for(int i = 0; i < 2; i++) {
-//            System.out.println("What item would you like to search for? ");
-//            int searchQuery = cin.nextInt();
-//            int location = Arrays.binarySearch(array, searchQuery);
-//            if (location >= 0)
-//                System.out.println("status: found at index: " + location);
-//            else
-//                System.out.println("status: not found: " + location);
-//        }
-        binarySearch(array, 4, results);
-        print(array, false);
+        System.out.println("\n" + "Part 2" + "\n");
+        for(int i = 0; i < 2; i++) {
+            System.out.println("What item would you like to search for? ");
+            int searchQuery = cin.nextInt();
+            int location = Arrays.binarySearch(array, searchQuery);
+            if (location >= 0)
+                System.out.println("status: found at index: " + location);
+            else
+                System.out.println("status: not found: " + location);
+        }
+        System.out.println("\n" + "Part 3");
+        for(int i = 0; i < 2; i++) {
+            System.out.println("What entry? ");
+            results = binarySearch(array, cin.nextInt());
+
+            if (results[1] == -1)
+                System.out.println("Status: entry not found after " + results[0] + " probes");
+            else
+                System.out.println("Status: entry found at index " + results[1] + " after " + results[0] + " probes");
+        }
     }
     public static int[] generateArray() {
         Random randomizer = new Random();
@@ -48,26 +57,27 @@ public class Main {
                 System.out.print(array[i-1] + " ");
         }
     }
-    public static int[] binarySearch(int[]array, int searchQuery, int[] results) {
-        results = binarySearch(array, searchQuery, 0, array.length/2, array.length-1, results);
-        return results;
-    }
-    public static int[] binarySearch(int[] array, int searchQuery, int lowVal, int midVal, int highVal, int[] results) {
-        if (lowVal == highVal) {
-            results[1]++;
-            results[0] = -1;
-        }
-        else if (array[midVal] < searchQuery) {
-            results[1]++;
-            return binarySearch(array, searchQuery, midVal + 1, midVal + (highVal - midVal) /2, highVal, results);
-       }
-       else if (array[midVal] > searchQuery){
-            results[1] += 2;
-            return binarySearch(array, searchQuery, lowVal, midVal - (highVal - midVal) /2, midVal - 1, results);
-        } else {
-            results[1] += 3;
-            results[0] = midVal;
-            return results;
+    public static int[] binarySearch(int[] array, int searchQuery) {
+        int[] results = new int[2];
+        results[0] = 0;
+        results[1] = -1;
+        int lowVal = 0;
+        int midVal;
+        int highVal = array.length-1;
+
+        while(highVal >= lowVal) {
+            midVal = (highVal + lowVal)/2;
+            if(array[midVal] == searchQuery) {
+                results[0]++;
+                results[1] = midVal;
+                return results;
+            } else if (array[midVal] > searchQuery) {
+                results[0]+= 2;
+                highVal = midVal-1;
+            } else {
+                results[0]+= 2;
+                lowVal = midVal+1;
+            }
         }
     return results;
     }
