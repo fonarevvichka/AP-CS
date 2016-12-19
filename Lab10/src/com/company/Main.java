@@ -2,14 +2,18 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         String pathname = "Cipher.txt";
+        String pathname2 = "Replace.txt";
         File file = new File(pathname);
+        File file2 = new File(pathname2);
         Scanner reader = null;
+        Scanner readerTwo = null;
 
         //------------------ Open File ----------------------//
         try {
@@ -19,12 +23,19 @@ public class Main {
             System.exit(1);
         }
 
+        try {
+            readerTwo = new Scanner(file2);
+        } catch (FileNotFoundException ex){
+            System.out.println("could not open " + pathname2);
+            System.exit(1);
+        }
+
         //------------------ Open File ----------------------//
 
         //------------------ Initialize Array ---------------//
         Record[] letters = new Record[26];
         for (int i = 65; i < 91; i++)
-            letters[i-65] = new Record(0, (char) i);
+            letters[i-65] = new Record(0, (char) i, (char) i);
         //------------------ Initialize Array ---------------//
 
         //------------------ Count Frequencies --------------//
@@ -40,10 +51,19 @@ public class Main {
         //------------------ Count Frequencies --------------//
 
         //------------------ Print Frequencies --------------//
-         for (int i = 0; i < 26; i++) {
+         for (int i = 0; i < 26; i++)
             System.out.println(letters[i].getLetter() + " has a frequency of " + letters[i].getFrequency());
-        }
         //------------------ Print Frequencies --------------//
-        Record.sort()
+        System.out.println("\n");
+        //------------------ Sort and Print------------------//
+        Arrays.sort(letters);
+        for (int i = 0; i < 26; i++)
+            System.out.println(letters[i].getLetter() + " has a frequency of " + letters[i].getFrequency());
+        //------------------ Sort and Print------------------//
+
+        //------------ Char array from Replace.txt ----------//
+
+        //------------ Char array from Replace.txt ----------//
+
     }
 }
