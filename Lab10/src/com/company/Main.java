@@ -15,6 +15,11 @@ public class Main {
         Scanner reader = null;
         Scanner readerTwo = null;
         Scanner readerThree = null;
+        Scanner readerFour = null;
+        Scanner cin = new Scanner(System.in);
+        int[] duplicates = new int[26];
+        int duplicateNumber = 0, previousNum, g = 1;
+        String replacementChoice = "";
 
         //------------------ Open File ----------------------//
         try {
@@ -37,7 +42,12 @@ public class Main {
             System.out.println("could not open " + pathname);
             System.exit(1);
         }
-
+        try {
+            readerFour = new Scanner(file);
+        } catch (FileNotFoundException ex){
+            System.out.println("could not open " + pathname);
+            System.exit(1);
+        }
         //------------------ Open File ----------------------//
 
         //------------------ Initialize Array ---------------//
@@ -83,10 +93,7 @@ public class Main {
             letters[i].setAssociatedLetter(replace[i]);
         }
         //------------------ Set Associated Letter ----------//
-            for (int i = 0; i < 26; i++) {
-                System.out.println(letters[i].getLetter() + " has a frequency of " + letters[i].getFrequency() + " and is associted to " + letters[i].getAssociatedLetter() + " i is " + i);
-            }
-//        System.out.print(letters[23].getAssociatedLetter());
+
         //------------------ Print Decoded Message ----------//
 
         while(readerThree.hasNext()) {
@@ -103,7 +110,55 @@ public class Main {
                     System.out.print(cWord.charAt(k));
                 }
             }
+            System.out.print(" ");
         }
         //------------------ Print Decoded Message ----------//
+        System.out.println("\n");
+        //------------------ Print out duplicates -----------//
+        previousNum = letters[0].getFrequency();
+        for (int k = 1; k < 26; k++) {
+            if(previousNum == letters[k].getFrequency()) {
+                duplicateNumber++;
+                duplicates[g - 1] = k - 1;
+                duplicates[g] = k;
+                g += 2;
+            }
+            previousNum = letters[k].getFrequency();
+        }
+        System.out.println("There are " + duplicateNumber + " duplicates");
+        for (int i = 0; i < duplicateNumber; i++) {
+            System.out.println("Letters " + letters[duplicates[i]].getLetter() + " and " +
+                    letters[duplicates[i]+1] + " are duplicates, your choices are: " +
+                    letters[duplicates[i]].getAssociatedLetter() + " or " +
+                    letters[duplicates[i]+1].getAssociatedLetter() +
+                    " respectively, would you like to switch them (y/n)? ");
+
+            replacementChoice = cin.next();
+            if(replacementChoice.charAt(0) == 'y') {
+                char temp = letters[duplicates[i]].getAssociatedLetter();
+                letters[duplicates[i]].setAssociatedLetter(letters[duplicates[i]+1].getAssociatedLetter());
+                letters[duplicates[i] + 1].setAssociatedLetter(temp);
+            }
+        }
+        //------------------ Print out duplicates -----------//
+
+        // printing temp // TODO: change to writing to a file
+
+        while(readerFour.hasNext()) {
+            String cWord = readerFour.next();
+            cWord.toUpperCase();
+            for(int k = 0; k < cWord.length(); k++) {
+                if (cWord.charAt(k) > 64 && cWord.charAt(k) < 91) {
+                    for(int i = 0; i < 26; i++) {
+                        if (letters[i].getLetter() == cWord.charAt(k)) {
+                            System.out.print(letters[i].getAssociatedLetter());
+                        }
+                    }
+                } else {
+                    System.out.print(cWord.charAt(k));
+                }
+            }
+            System.out.print(" ");
+        }
     }
 }
