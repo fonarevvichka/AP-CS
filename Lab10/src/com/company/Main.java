@@ -1,3 +1,7 @@
+//Vichka Fonarev
+//12/11/16
+//F Block
+
 package com.company;
 
 import java.io.*;
@@ -15,7 +19,13 @@ public class Main {
         Scanner readerTwo = null;
         Scanner readerThree = null;
         Scanner readerFour = null;
-        BufferedWriter output = null;
+        File outputFile = new File("output.txt");
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(outputFile);
+        } catch (IOException ex) {
+            System.out.println("could not write to file");
+        }
         Scanner cin = new Scanner(System.in);
         int[] duplicates = new int[26];
         int duplicateNumber = 0, previousNum;
@@ -93,11 +103,11 @@ public class Main {
             letters[i].setAssociatedLetter(replace[i]);
         }
         //------------------ Set Associated Letter ----------//
-
+        System.out.println("\n");
         //------------------ Print Decoded Message ----------//
 
-        while (readerThree.hasNext()) {
-            String cWord = readerThree.next();
+        while (readerThree.hasNextLine()) {
+            String cWord = readerThree.nextLine();
             cWord.toUpperCase();
             for (int k = 0; k < cWord.length(); k++) {
                 if (cWord.charAt(k) > 64 && cWord.charAt(k) < 91) {
@@ -110,13 +120,10 @@ public class Main {
                     System.out.print(cWord.charAt(k));
                 }
             }
-            System.out.print(" ");
+            System.out.print("\n");
         }
         //------------------ Print Decoded Message ----------//
-
         System.out.println("\n");
-
-
         //----------------- Figure out duplicates -----------//
 
 
@@ -135,7 +142,7 @@ public class Main {
 
         for (int i = 0; i < duplicateNumber; i++) {
             System.out.println("Letters " + letters[duplicates[i]].getLetter() + " and " +
-                    letters[duplicates[i] + 1] + " are duplicates, your choices are: " +
+                    letters[duplicates[i] + 1].getLetter() + " are duplicates, your choices are: " +
                     letters[duplicates[i]].getAssociatedLetter() + " or " +
                     letters[duplicates[i] + 1].getAssociatedLetter() +
                     " respectively, would you like to switch them (y/n)? ");
@@ -150,46 +157,38 @@ public class Main {
         //------------------ Print out duplicates -----------//
 
         //------------------ Open a new file ----------------//
-        try {
-            File outputFile = new File("output.txt");
-            output = new BufferedWriter(new FileWriter(outputFile));
-        } catch (IOException e) {
-            System.out.println("Unable to create file 'output.txt'");
-        }
         //------------------ Open a new file ----------------//
-        while(readerFour.hasNext()) {
-            String cWord = readerFour.next();
+        while(readerFour.hasNextLine()) {
+            String cWord = readerFour.nextLine();
             cWord.toUpperCase();
             for(int k = 0; k < cWord.length(); k++) {
                 if (cWord.charAt(k) > 64 && cWord.charAt(k) < 91) {
                     for(int i = 0; i < 26; i++) {
                         if (letters[i].getLetter() == cWord.charAt(k)) {
                             try {
-//                                System.out.print(letters[i].getAssociatedLetter());
-                                output.write(letters[i].getAssociatedLetter());
-                            }
-                            catch (IOException x) {
+                                writer.print(letters[i].getAssociatedLetter());
+                            } catch (Exception x) {
                                 System.out.println("couldn't write to output file");
                             }
                         }
                     }
                 } else {
                     try {
-                        output.write(cWord.charAt(k));
-                    }
-                            catch (IOException x) {
+                        writer.print(cWord.charAt(k));
+                    } catch (Exception x) {
                         System.out.println("couldn't write to output file");
                     }
 
                 }
             }
             try {
-                output.write(" ");
-            }
-            catch (IOException x) {
+                writer.print(" ");
+            } catch (Exception x) {
                 System.out.println("couldn't write to output file");
             }
-
+            writer.print("\n");
         }
+        writer.flush();
+        System.out.println("The message has been decoded into 'output.txt'");
     }
 }
