@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -30,28 +29,33 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
-		for(int k = 0; k < ranks.length; k++) {
-			cards.add(k, new Card(ranks[k], suits[k], values[k]));
+		cards = new ArrayList<Card>() {};
+
+		for (int i = 0; i < suits.length; i++) {
+			for (int k = 0; k < ranks.length; k++) {
+				Card tempCard = new Card(ranks[k], suits[i], values[k]);
+				System.out.println(tempCard.toString());
+				cards.add(tempCard);
+				size++;
+			}
 		}
 	}
-
 
 	/**
 	 * Determines if this deck is empty (no undealt cards).
 	 * @return true if this deck is empty, false otherwise.
 	 */
-	public boolean isEmpty() {
-		if(cards.size() == 0)
-			return true;
-		return false;
-	}
+
 
 	/**
 	 * Accesses the number of undealt cards in this deck.
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		return cards.size();
+	}
+	public boolean isEmpty() {
+		return cards.isEmpty();
 	}
 
 	/**
@@ -68,7 +72,11 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if(!cards.isEmpty()) {
+			size--;
+			return cards.get(size+1);
+		}
+		return null;
 	}
 
 	/**
