@@ -34,7 +34,6 @@ public class Deck {
 		for (int i = 0; i < suits.length; i++) {
 			for (int k = 0; k < ranks.length; k++) {
 				Card tempCard = new Card(ranks[k], suits[i], values[k]);
-				System.out.println(tempCard.toString());
 				cards.add(tempCard);
 				size++;
 			}
@@ -74,7 +73,7 @@ public class Deck {
 	public Card deal() {
 		if(!cards.isEmpty()) {
 			size--;
-			return cards.get(size+1);
+			return cards.get(cards.size()-1);
 		}
 		return null;
 	}
