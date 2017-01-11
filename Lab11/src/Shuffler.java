@@ -1,3 +1,7 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Random;
+
 /**
  * This class provides a convenient way to test shuffling methods.
  */
@@ -7,7 +11,7 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 3;
 
 	/**
 	 * The number of values to shuffle.
@@ -60,7 +64,20 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+		int k = 0;
+		for(int i = 0; i < values.length/2; i++) {
+			shuffled[k] = values[i];
+			k += 2;
+		}
+		k = 1;
+		for(int i = values.length/2; i< values.length; i++) {
+            shuffled[k] = values[i];
+            k += 2;
+        }
+        for(int i = 0; i < values.length; i++) {
+            values[i] = shuffled[i];
+        }
 	}
 
 	/**
@@ -75,6 +92,35 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] shuffled = new int[values.length];
+		Random rand = new Random();
+        int randomNumber = rand.nextInt(values.length);
+		for (int i = 0; i < values.length; i++) {
+			while(values[randomNumber] == -1) {
+				randomNumber = rand.nextInt(values.length);
+			}
+			shuffled[i] = values[randomNumber];
+			values[randomNumber] = -1;
+		}
+		for(int i = 0; i < values.length; i++) {
+            values[i] = shuffled[i];
+        }
 	}
+
+	public static String flip() {
+        Random rand = new Random();
+        if(rand.nextInt(3) < 2 )
+            return "heads";
+        return "tails";
+    }
+    public static boolean arePermutations(int[] arrayOne, int[] arrayTwo) {
+        Arrays.sort(arrayOne);
+        Arrays.sort(arrayTwo);
+
+        for(int i = 0; i < arrayOne.length; i++) {
+            if (arrayOne[i] != arrayTwo[i])
+                return false;
+        }
+        return true;
+    }
 }
