@@ -114,13 +114,13 @@ public class Shuffler {
         return "tails";
     }
     public static boolean arePermutations(int[] arrayOne, int[] arrayTwo) {
-        Arrays.sort(arrayOne);
-        Arrays.sort(arrayTwo);
+		Arrays.sort(arrayOne);
+		Arrays.sort(arrayTwo);
 
-        for(int i = 0; i < arrayOne.length; i++) {
-            if (arrayOne[i] != arrayTwo[i])
-                return false;
-        }
-        return true;
-    }
+		for (int i = 0; i < arrayOne.length; i++) {
+			if (arrayOne[i] != arrayTwo[i])
+				return false;
+		}
+		return true;
+	}
 }
