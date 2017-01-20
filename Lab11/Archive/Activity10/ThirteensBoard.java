@@ -26,7 +26,7 @@ public class ThirteensBoard extends Board {
 	 * The values of the cards for this game to be sent to the deck.
 	 */
 	private static final int[] POINT_VALUES =
-		{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
+		{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0};
 
 	/**
 	 * Flag used to control debugging print statements.
@@ -54,8 +54,8 @@ public class ThirteensBoard extends Board {
 	public boolean isLegal(List<Integer> selectedCards) {
 		if (selectedCards.size() == 2) {
 			return containsPairSum13(selectedCards);
-		} else if (selectedCards.size() == 3) {
-			return containsJQK(selectedCards);
+		} else if (selectedCards.size() == 1) {
+			return containsK(selectedCards);
 		} else {
 			return false;
 		}
@@ -72,7 +72,7 @@ public class ThirteensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		List<Integer> cIndexes = cardIndexes();
-		return containsPairSum13(cIndexes) || containsJQK(cIndexes);
+		return containsPairSum13(cIndexes) || containsK(cIndexes);
 	}
 
 	/**
@@ -104,20 +104,14 @@ public class ThirteensBoard extends Board {
 	 * @return true if the board entries in selectedCards
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
-	private boolean containsJQK(List<Integer> selectedCards) {
-		boolean foundJack = false;
-		boolean foundQueen = false;
+	private boolean containsK(List<Integer> selectedCards) {
 		boolean foundKing = false;
 		for (Integer kObj : selectedCards) {
 			int k = kObj.intValue();
-			if (cardAt(k).rank().equals("jack")) {
-				foundJack = true;
-			} else if (cardAt(k).rank().equals("queen")) {
-				foundQueen = true;
-			} else if (cardAt(k).rank().equals("king")) {
+			if (cardAt(k).rank().equals("king")) {
 				foundKing = true;
 			}
 		}
-		return foundJack && foundQueen && foundKing;
+		return foundKing;
 	}
 }
