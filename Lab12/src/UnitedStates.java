@@ -14,7 +14,9 @@ public class UnitedStates{
         File states = new File("states.txt");
         ArrayList<String> statesList = new ArrayList<String>();
         Scanner cin = null;
-        int counter = 0, compareArea;
+        int counter = 0, insertPosition;
+        String pWord, cWord;
+
         try {
             cin =  new Scanner(states);
         } catch (FileNotFoundException ex) {
@@ -22,20 +24,38 @@ public class UnitedStates{
             System.exit(1);
         }
 
-        while(cin.hasNext()) {
-           if(counter == 0) {
+        while (cin.hasNextLine()) {
+           if (counter == 0) {
                statesList.add(counter, cin.next());
            } else {
-               String cWord = statesList.get(counter);
-               String pWord = statesList.get(counter - 1);
-                if(cWord.charAt(0) == pWord.charAt(0)) { //first letter same case;
+               insertPosition = counter;
 
-                } else if (cWord.charAt(0) > pWord.charAt(0)) { //later in alphabet
-                    statesList.add(counter + 1, cWord);
-                }
+               cWord = cin.nextLine();
+               if(insertPosition == 1) {
+                   pWord = "a";
+//                   System.out.println(pWord);
+               } else {
+                   pWord = statesList.get(insertPosition-1);
+               }
+
+               System.out.println(cWord.compareToIgnoreCase(pWord) > 0);
+               while (cWord.compareToIgnoreCase(pWord) > 0) {
+                   System.out.println(pWord);
+                   System.out.println(cWord);
+//                   System.out.println(insertPosition);
+                   insertPosition--;
+
+                   pWord = statesList.get(insertPosition-1);
+               }
+               statesList.add(insertPosition, cWord);
            }
            counter++;
         }
 
+
+
+        for (int i = 0; i < statesList.size(); i++) {
+            System.out.println(statesList.get(i) + " " + i);
+        }
     }
 }
