@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,8 +16,10 @@ import java.util.Scanner;
 public class UnitedStates {
     public static void main(String[] Args) {
         File states = new File("states.txt");
-        ArrayList<String> statesList = new ArrayList<String>();
+        List<String> statesList = new ArrayList<String>();
         Scanner cin = null;
+        Scanner cinTwo = new Scanner(System.in);
+        boolean quit = false;
         int counter = 0, insertPosition, duplicate = 0;
         String pWord, cWord;
 
@@ -55,17 +58,51 @@ public class UnitedStates {
             }
             counter++;
         }
-        displayList(statesList);
-        insertItem(statesList, "Hawaii");
+        String state = "";
+        String userChoice = "";
+        while(!quit) {
+
+            System.out.println("\n" + "Choose an option:" + " \n" +
+                    "D. Display list " + "\n" +
+                    "I. Insert item" + "\n" +
+                    "R. Remove item" + "\n" +
+                    "S. Save to file" + "\n" +
+                    "Q. Quit and don't write" + "\n" +
+                    "Selection: ");
+            userChoice = cinTwo.next();
+            //display menu
+            switch(userChoice) {
+                case "D":
+                    displayList(statesList);
+                    break;
+                case "I":
+                    System.out.println("What would you like to insert");
+                    state = cinTwo.next();
+                    insertItem(statesList, state);
+                    break;
+                case "R":
+                    System.out.println("What would you like to remove");
+                    state = cinTwo.next();
+                    removeItem(statesList, state);
+                    break;
+                case "S":
+                    saveList(statesList, states);
+                    break;
+                case "Q":
+                    quit = true;
+            }
+        }
+//        displayList(statesList);
+//        insertItem(statesList, "Hawaii");
 //        System.out.println("\n");
 //        displayList(statesList);
 //        System.out.println("\n");
 //        removeItem(statesList, "arizasdfona");
-        displayList(statesList);
+//        displayList(statesList);
     }
 
 
-    public static void insertItem(ArrayList<String> statesList, String cWord) {
+    public static void insertItem(List<String> statesList, String cWord) {
         int insertPosition = statesList.size();
         if (statesList.size() == 0) {
             statesList.add(0, cWord);
@@ -85,8 +122,8 @@ public class UnitedStates {
         }
     }
 
-    public void saveList(ArrayList<String> stateList) {
-        File outputFile = new File("output.txt");
+    public static void saveList(List<String> stateList, File statesTxt) {
+        File outputFile = statesTxt;
         PrintWriter writer = null;
 
         try {
@@ -101,26 +138,26 @@ public class UnitedStates {
             } catch (Exception x) {
                 System.out.println("couldn't write to output file");
             }
-            writer.print("\n");
         }
         writer.flush();
+        writer.close();
     }
 
-    public static void removeItem (ArrayList<String> stateList, String state) {
+    public static void removeItem (List<String> stateList, String state) {
         for(int i = 0; i < stateList.size(); i++) {
             if (isInList(stateList, state)) {
                 stateList.remove(i);
             }
         }
     }
-    public static boolean isInList(ArrayList <String> stateList, String word) {
+    public static boolean isInList(List <String> stateList, String word) {
         for (int i = 0; i < stateList.size(); i++) {
             if(word.equalsIgnoreCase(stateList.get(i)))
                 return  true;
         }
         return false;
     }
-    public static void displayList(ArrayList<String> statesList) {
+    public static void displayList(List<String> statesList) {
         for(String state : statesList) {
             System.out.println(state);
         }
