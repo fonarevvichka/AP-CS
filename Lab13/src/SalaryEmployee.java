@@ -4,7 +4,7 @@
 public class SalaryEmployee extends Employee {
     private double salary;
 
-    public SalaryEmployee(String employeeID, String name, double salary) {
+    public SalaryEmployee(String name, String employeeID, double salary) {
         super(employeeID, name);
 
         this.salary = salary;

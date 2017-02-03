@@ -5,7 +5,7 @@ public class HourlyEmployee extends Employee {
     private double hourlyRate;
     private double hoursWorked;
 
-   public HourlyEmployee(String employeeID, String name, double hourlyRate) {
+   public HourlyEmployee(String name, String employeeID, double hourlyRate) {
         super(employeeID, name);
 
         this.hourlyRate = hourlyRate;
