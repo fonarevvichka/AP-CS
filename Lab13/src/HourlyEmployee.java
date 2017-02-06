@@ -3,7 +3,7 @@
  */
 public class HourlyEmployee extends Employee {
     private double hourlyRate;
-    private double hoursWorked;
+    private double hoursWorked = 0;
 
    public HourlyEmployee(String name, String employeeID, double hourlyRate) {
         super(employeeID, name);
@@ -18,8 +18,8 @@ public class HourlyEmployee extends Employee {
             return hourlyRate * 40 + (hourlyRate * 1.5) * hoursWorked % 40;
         }
     }
-    public void setHoursWorked(double hoursWorked) {
-        this.hoursWorked = hoursWorked;
+    public void addHoursWorked(double hoursWorked) {
+        this.hoursWorked += hoursWorked;
     }
     public void changeRate(double change) {
         this.hourlyRate += change;

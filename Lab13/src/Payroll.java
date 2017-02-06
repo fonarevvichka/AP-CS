@@ -81,6 +81,7 @@ public class Payroll {
                     id = cin.next();
                     System.out.println("how many hours would you like to add: ");
                     pay = cin.nextDouble();
+                    addHoursToEmployee(id, pay);
                 case "Q":
                     quit = true;
             }
@@ -177,14 +178,13 @@ public class Payroll {
         return "An employee with that ID does not exist";
     }
     public static void addHoursToEmployee(String id, double hours) {
-        //employye to save
-        for(HourlyEmployee employee : HourlyEmployees) {
+        HourlyEmployee employee = null;
+        for(HourlyEmployee worker : HourlyEmployees) {
             if(employee.getEmployeeID().equals(id)) {
-                //save employee
+                employee = worker;
                 break;
             }
         }
-        //add hours
-
+        employee.addHoursWorked(hours);
     }
 }
