@@ -146,7 +146,10 @@ public class UnitedStates {
     public static void removeItem (List<String> stateList, String state) {
         for(int i = 0; i < stateList.size(); i++) {
             if (isInList(stateList, state)) {
-                stateList.remove(i);
+                if(state.equalsIgnoreCase(stateList.get(i))) {
+                    stateList.remove(i);
+                    break;
+                }
             }
         }
     }
