@@ -67,7 +67,7 @@ public class UnitedStates {
                     "I. Insert item" + "\n" +
                     "R. Remove item" + "\n" +
                     "S. Save to file" + "\n" +
-                    "Q. Quit and don't write" + "\n" +
+                    "Q. Quit" + "\n" +
                     "Selection: ");
             userChoice = cinTwo.next();
             //display menu
@@ -89,6 +89,7 @@ public class UnitedStates {
                     saveList(statesList, states);
                     break;
                 case "Q":
+                    saveList(statesList, states);
                     quit = true;
             }
         }
