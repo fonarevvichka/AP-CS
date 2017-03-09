@@ -49,7 +49,7 @@ public class Customer implements Comparable <Customer>{
         }
 
 
-        if(customerOnePriority > customerTwoPriority) {
+        if(customerOnePriority < customerTwoPriority) {
             return 1;
         } else {
             return -1;
